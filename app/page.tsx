@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import * as Dialog from "@radix-ui/react-dialog";
+import { IconHeartFilled, IconX } from "@tabler/icons-react";
 
 export default function Home() {
   const [noButtonPos, setNoButtonPos] = useState({ x: 0, y: 0 });
@@ -28,21 +29,21 @@ export default function Home() {
         <div>
           {/* YES BUTTON (Left Side) */}
           <motion.button
-            className="bg-red-500 text-white px-6 py-2 rounded-md text-lg font-semibold"
+            className="bg-red-500 text-white flex gap-2 px-6 py-2 rounded-md text-lg font-semibold"
             whileTap={{ scale: 0.9 }}
             onClick={() => setShowDialog(true)}
           >
-            No ❌
+            No <IconX size={24} />
           </motion.button>
         </div>
         <div>
           {/* NO BUTTON (Right Side, Moves Around) */}
           <motion.button
-            className="bg-green-500 text-white px-6 py-2 rounded-md text-lg font-semibold "
+            className="bg-green-500 text-white flex gap-2 px-6 py-2 rounded-md text-lg font-semibold "
             animate={{ x: noButtonPos.x, y: noButtonPos.y }}
             onMouseEnter={handleMouseMove}
           >
-            Yes ❤️
+            Yes <IconHeartFilled size={24} />
           </motion.button>
         </div>
       </div>
