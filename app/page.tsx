@@ -9,14 +9,10 @@ export default function Home() {
   const [noButtonPos, setNoButtonPos] = useState({ x: 0, y: 0 });
   const [showDialog, setShowDialog] = useState(false);
 
-  const handleMouseMove = () => {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
-    const randomX = Math.random() * (screenWidth - 100) - screenWidth / 2;
-    const randomY = Math.random() * (screenHeight - 60) - screenHeight / 2;
-
-    setNoButtonPos({ x: randomX, y: randomY });
+  const moveNoButton = () => {
+    const newX = Math.random() * window.innerWidth - window.innerWidth / 2;
+    const newY = Math.random() * window.innerHeight - window.innerHeight / 2;
+    setNoButtonPos({ x: newX, y: newY });
   };
 
   return (
@@ -42,7 +38,8 @@ export default function Home() {
             <motion.button
               className="bg-green-500 text-white flex gap-2 px-6 py-2 rounded-md text-lg font-semibold "
               animate={{ x: noButtonPos.x, y: noButtonPos.y }}
-              onMouseEnter={handleMouseMove}
+              onMouseEnter={moveNoButton} // Moves on hover (Desktop)
+              onClick={moveNoButton} // Moves on tap (Mobile)
             >
               Yes <IconHeartFilled size={24} />
             </motion.button>
@@ -51,14 +48,14 @@ export default function Home() {
         {/* Dialog for "Yes" Button */}
         <Dialog.Root open={showDialog} onOpenChange={setShowDialog}>
           <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-black/50" />
+            <Dialog.Overlay className="fixed inset-0 bg-black/50 border-2 border-blue-200" />
             <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg text-center">
-              <Dialog.Title className="text-xl font-bold  flex gap-2 dark:text-[#171717]">
+              <Dialog.Title className="text-xl font-bold flex flex-row  items-center justify-center gap-2 dark:text-[#171717]">
                 it&apos;s Ok! <IconHeartFilled size={24} />
               </Dialog.Title>
               <p className="mt-2 dark:text-[#171717]">
                 {" "}
-                Mention not... <br /> You made my day! 🥲
+                Mention not... <br /> You made my day!
               </p>
               <Dialog.Close asChild>
                 <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
