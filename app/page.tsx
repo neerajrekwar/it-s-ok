@@ -48,7 +48,7 @@ export default function Home() {
         {/* Dialog for "Yes" Button */}
         <Dialog.Root open={showDialog} onOpenChange={setShowDialog}>
           <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-black/50 border-2 border-blue-200" />
+            <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur" />
             <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg text-center">
               <Dialog.Title className="text-xl font-bold flex flex-row  items-center justify-center gap-2 dark:text-[#171717]">
                 it&apos;s Ok! <IconHeartFilled size={24} />
