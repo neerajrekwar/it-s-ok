@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barriecito, Geist, Geist_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,6 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-3237RQL4C3" />
       <body
         className={`${barriecito.className} ${geistMono.variable} ${geistSans.variable} antialiased`}
       >
