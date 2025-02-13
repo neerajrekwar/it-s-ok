@@ -54,7 +54,10 @@ export default function Home() {
             <Dialog.Title className="text-xl font-bold">
               it's Ok! ❤️
             </Dialog.Title>
-            <p className="mt-2">You made my day! 😊</p>
+            <p className="mt-2">
+              {" "}
+              Mention not... <br /> You made my day! 🥲
+            </p>
             <Dialog.Close asChild>
               <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
                 Close
