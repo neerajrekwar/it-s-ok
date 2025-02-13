@@ -15,6 +15,17 @@ export default function Home() {
     setNoButtonPos({ x: newX, y: newY });
   };
 
+// Auto close dialog & refresh after 3 seconds
+  useEffect(() => {
+    if (showDialog) {
+      const timer = setTimeout(() => {
+        setShowDialog(false);
+        window.location.reload(); // Refresh page
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showDialog]);
+  
   return (
     <main>
       <div className="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
