@@ -19,35 +19,41 @@ export default function Home() {
   };
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center border border-black relative overflow-hidden">
-      <h1 className="text-xl text-center font-bold  p-2">Will You Be My Valentine?</h1>
+    <div className="h-screen flex flex-col items-center justify-center text-center border border-black relative overflow-hidden">
+      <h1 className="text-xl text-center font-bold p-2">
+        Will You Be My Valentine?
+      </h1>
 
-      <div className="mt-8 flex gap-16">
-        {/* YES BUTTON (Left Side) */}
-        <motion.button
-          className="bg-red-500 text-white px-6 py-2 rounded-md text-lg font-semibold"
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setShowDialog(true)}
-        >
-          No ❌
-        </motion.button>
-
-        {/* NO BUTTON (Right Side, Moves Around) */}
-        <motion.button
-          className="bg-green-500 text-white px-6 py-2 rounded-md text-lg font-semibold absolute"
-          animate={{ x: noButtonPos.x, y: noButtonPos.y }}
-          onMouseEnter={handleMouseMove}
-        >
-          Yes ❤️
-        </motion.button>
+      <div className="mt-8 flex gap-16 ">
+        <div>
+          {/* YES BUTTON (Left Side) */}
+          <motion.button
+            className="bg-red-500 text-white px-6 py-2 rounded-md text-lg font-semibold"
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setShowDialog(true)}
+          >
+            No ❌
+          </motion.button>
+        </div>
+        <div>
+          {/* NO BUTTON (Right Side, Moves Around) */}
+          <motion.button
+            className="bg-green-500 text-white px-6 py-2 rounded-md text-lg font-semibold "
+            animate={{ x: noButtonPos.x, y: noButtonPos.y }}
+            onMouseEnter={handleMouseMove}
+          >
+            Yes ❤️
+          </motion.button>
+        </div>
       </div>
-
       {/* Dialog for "Yes" Button */}
       <Dialog.Root open={showDialog} onOpenChange={setShowDialog}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/50" />
           <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg text-center">
-            <Dialog.Title className="text-xl font-bold">Thank You! ❤️</Dialog.Title>
+            <Dialog.Title className="text-xl font-bold">
+              it's Ok! ❤️
+            </Dialog.Title>
             <p className="mt-2">You made my day! 😊</p>
             <Dialog.Close asChild>
               <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">
